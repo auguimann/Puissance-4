@@ -16,47 +16,13 @@ def Affichage(grille):
         string=string+"\n"
     print(string)
 
-infini=10000
+def PositionCorrecte(grille, col):
+    caseL=False
+    for i in range(len(grille)):
+        if grille[i][col]==0:
+            caseL=True
+            break
+    return caseL
 
-def maxValue(grille, n, depth, joueur):
-    v = -infini
-    if TerminalTest(grille):
-        return Utility(grille)
-    elif (n > depth):
-        return 0
-    else:
-        for a in Actions(grille):
-            v = max(v, minValue(Result(grille, a, joueur), n + 1, depth, ChangementJoueur(joueur)))
-        return v
-
-def minValue(grille, n, depth, joueur):
-    v = infini
-    if TerminalTest(grille):
-        return Utility(grille)
-    elif (n > depth):
-        return 0
-    else:
-        nb = 0
-        for a in Actions(grille):
-            nb = nb + 1
-            v = min(v, maxValue(Result(grille, a, joueur), n + 1, depth, ChangementJoueur(joueur)))
-        return v
-
-def minimaxDecision(grille, depth, joueur):
-    ListeActions, ListeUtility = [], []
-    for a in Actions(grille):
-        ListeActions.append(a)
-        if TerminalTest(Result(grille, a, joueur)):
-            ListeUtility.append(Utility(Result(grille, a, joueur)))
-        else:
-            ListeUtility.append(minValue(Result(grille, a, joueur), 1, depth, ChangementJoueur(joueur)))
-    print(ListeUtility)
-    for i in range(len(ListeActions)):
-        if ListeUtility[i] == max(ListeUtility):
-            #on retourne l'action dont l'utility est maximale
-            return ListeActions[i]
-
-
-infini=10000
 grille=[[0] * 7 for i in range(6)]
 Affichage(grille)
