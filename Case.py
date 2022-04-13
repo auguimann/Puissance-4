@@ -1,10 +1,10 @@
 class Case:
 
-    def __init__(self, col, lig, status=0):
+    def __init__(self, col, lig, state=0):
 
         self.__col = col
         self.__lig = lig
-        self.__status = status
+        self.__state = state
 
     @property
     def col(self) -> int:
@@ -19,20 +19,20 @@ class Case:
     @property
     def status(self) -> int:
 
-        return self.__status
+        return self.__state
 
     @status.setter
     def status(self, newstat):
 
-        self.__status = newstat
+        self.__state = newstat
 
     def isFree(self) -> bool:
 
-        return self.__status == 0
+        return self.__state == 0
 
-    def __str__(self):
+    def __str__(self) -> str:
 
-        match self.__status:
+        match self.__state:
 
             case 0:
 
