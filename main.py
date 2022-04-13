@@ -16,7 +16,7 @@ def Affichage(grille):
         string=string+"\n"
     print(string)
 
-def PositionCorrecte(grille, col):
+def CheckPosition(grille, col):
     caseL=False
     for i in range(len(grille)):
         if grille[i][col]==0:
