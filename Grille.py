@@ -23,6 +23,7 @@ class Grille :
             str += "\n"
         return str
 
+    # verrification de la possibilité d'ajouter un pion a une colonne 
     def PositionLibre(self,col):
         caseLibre=False
         for lig in range(self.nblig):
