@@ -22,12 +22,12 @@ class Case:
         return self.__lig
 
     @property
-    def status(self) -> int:
+    def state(self) -> int:
 
         return self.__state
 
-    @status.setter
-    def status(self, newstat):
+    @state.setter
+    def state(self, newstat):
 
         self.__state = newstat
 

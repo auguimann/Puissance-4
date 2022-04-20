@@ -22,6 +22,9 @@ class Grille :
                 str += f"|{self.grille[lig][col]}|"
             str += "\n"
         return str
+    
+    def get_case(self,row : int,col : int) -> Case:
+        return self.grille[row][col]
 
     # verrification de la possibilité d'ajouter un pion a une colonne 
     def PositionLibre(self,col):
