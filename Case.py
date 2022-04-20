@@ -1,3 +1,8 @@
+# 0 libre 
+# 1 rouge 
+# 2 jaune
+#pour les status possibles
+
 class Case:
 
     def __init__(self, col, lig, state=0):

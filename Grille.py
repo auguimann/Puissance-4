@@ -1,10 +1,11 @@
 from json.tool import main
-from case import Case
+from Case import Case
 
 class Grille :
+    nbcol, nblig = 7,6
     def __init__(self) -> None:
-
         nbcol, nblig = 7,6
+        
         self.grille = [["" for x in range(nbcol)] for y in range(nblig)]
 
         for lig in range(nblig):
@@ -22,6 +23,15 @@ class Grille :
             str += "\n"
         return str
 
+    def PositionLibre(self,col):
+        caseLibre=False
+        for lig in range(self.nblig):
+            if self.grille[lig][col].status == 0:
+                caseLibre=True
+                break
+        return caseLibre
+
 if __name__ == '__main__':
     test = Grille()
     print(test)
+    print(Grille.PositionLibre(test,1))
